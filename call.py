@@ -21,20 +21,7 @@ for key in data:
                     aux2[series['pais'].get('id')+" - "+str(key['id'])] =aux1
 
 
-"""
-for key in data:
-    c = {}
-    for series in key['series']:    
-        #print("PAIS: ", series['pais']['id'])
-        for entry in key['series'][0]['serie']:
-            if any(entry.values()):
-                c[list(entry.keys())[0]] = list(entry.values())[0]
-                
-            z[series['pais']['id']+" - "+key['id']] =c
 
-
-
-"""
 dados = pd.read_json(json.dumps(aux2))
 dados.reset_index(level=0, inplace=True)
 dados.rename(columns={'index': 'Data'}, inplace = True)
@@ -46,20 +33,7 @@ dados['value'] = dados['value'].astype(str)
 dados['value'] = dados['value'].str.replace('.', ',')
 dados['value'] = dados['value'].astype(float)
 print(dados)
-"""
-for key in data:
-    print(key['id'])
 
-    for ps in key['series']:    
-        c = {}
-        for pais in ps:   
-            for entry in key['series'][0]['serie']:
-                if any(entry.values()):
-                    c['id','pais',list(entry.keys())[0]] = [key['id'],ps['pais'].get('id'),list(entry.values())[0]]
-                    #c[list(entry.keys())[0]] = list(entry.values())[0]
-                    print(ps['pais'].get('id'))
-
-"""
 
 
 
